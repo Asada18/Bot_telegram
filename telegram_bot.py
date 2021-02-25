@@ -4,6 +4,8 @@ from conf import token
 
 bot = telebot.TeleBot(token)
 
+income_keyboard = types.ReplyKeyboardMarkup(row_width=2, resize_keyboard=True, one_time_keyboard=True)
+
 inline_keyboard = types.InlineKeyboardMarkup()
 # btn1 = types.InlineKeyboardButton('до 10000', callback_data='first')
 # btn2 = types.InlineKeyboardButton('до 20000', callback_data='second')
@@ -28,7 +30,6 @@ def start(message):
 def inline(c):
     if c.data == 'first':
         chat_id = c.message.chat.id
-        income_keyboard = types.ReplyKeyboardMarkup(row_width=2, resize_keyboard=True, one_time_keyboard=True)
         k1 = types.KeyboardButton('до 10000')
         k2 = types.KeyboardButton('до 20000')
         k3 = types.KeyboardButton('до 40000')
@@ -46,13 +47,25 @@ def inline(c):
 def mess(message):
     chat_id = message.chat.id
     if message.text == "до 10000":
-        bot.send_photo(chat_id, 'https://imbt.ga/s4kJ30Qrtl', 'вот прайс \n ковты - 1000 сом')
+        bot.send_photo(chat_id, 'https://imbt.ga/24ZN6SWBhD', 'одежда: \n ковты - 2000 сом \n штаны - 1000 \n '
+                                                              'свитеры - 2000 \n пиджаки от 1500'
+                                                              '\n ремонт одежды любой от 1000 сом',
+                       reply_markup=income_keyboard)
     elif message.text == "до 20000":
-        bot.send_photo(chat_id, 'https://imbt.ga/KzBgDZoHmo', 'подушки - от 6000 сом за одну пару')
+        bot.send_photo(chat_id, 'https://imbt.ga/KzBgDZoHmo', 'для дома: \n подушки - от 6000 сом за одну пару \n'
+                                                              'покрывала - от 10000 сом \n шторы - от 3000 за 1 кв метр',
+                       reply_markup=income_keyboard)
     elif message.text == "до 40000":
-        bot.send_photo(chat_id, 'https://imbt.ga/KzBgDZoHmo', 'носки - от 3000 сом за одну пару')
+        bot.send_photo(chat_id, 'https://imbt.ga/Mtf1QqVe3e', 'одежда премиального качества: \n'
+                                                              'пальто - от 15000 сом \n'
+                                                              'платье (шёлк) - от 20000 сом \n'
+                                                              'пижама (шёлк) - от 10000 сом',
+                       reply_markup=income_keyboard)
     elif message.text == "до 70000":
-        bot.send_photo(chat_id, 'https://imbt.ga/KzBgDZoHmo', 'покрывала - от 2000 сом за одну пару')
+        bot.send_photo(chat_id, 'https://imbt.ga/Jwr4T8GdgW', 'одежда под заказ - от 30000 сом\n'
+                                                              'служебная одежда - от 40000 сом\n'
+                                                              'масовое производство изделий для дома - от 40000 сом',
+                       reply_markup=income_keyboard)
 
 
 # @bot.callback_query_handler(func=lambda c: True)
