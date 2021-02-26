@@ -34,7 +34,8 @@ def inline(c):
         k2 = types.KeyboardButton('до 20000')
         k3 = types.KeyboardButton('до 40000')
         k4 = types.KeyboardButton('до 70000')
-        income_keyboard.add(k1, k2, k3, k4)
+        k5 = types.KeyboardButton('Контакты')
+        income_keyboard.add(k1, k2, k3, k4, k5)
         msg = bot.send_message(chat_id, 'Выбери кнопку', reply_markup=income_keyboard)
         # bot.send_photo(chat_id, 'https://imbt.ga/s4kJ30Qrtl', 'вот прайс \n ковты - 1000 сом')
         # bot.send_photo(chat_id, 'https://imbt.ga/KzBgDZoHmo', 'вот прайс \n подушки - 1000 сом')
@@ -52,8 +53,8 @@ def mess(message):
                                                               '\n ремонт одежды любой от 1000 сом',
                        reply_markup=income_keyboard)
     elif message.text == "до 20000":
-        bot.send_photo(chat_id, 'https://imbt.ga/KzBgDZoHmo', 'для дома: \n подушки - от 6000 сом за одну пару \n'
-                                                              'покрывала - от 10000 сом \n шторы - от 3000 за 1 кв метр',
+        bot.send_photo(chat_id, 'https://imbt.ga/KzBgDZoHmo', 'для дома: \nподушки - от 6000 сом за одну пару \n'
+                                                              'покрывала - от 10000 сом \nшторы - от 3000 за 1 кв метр',
                        reply_markup=income_keyboard)
     elif message.text == "до 40000":
         bot.send_photo(chat_id, 'https://imbt.ga/Mtf1QqVe3e', 'одежда премиального качества: \n'
@@ -67,6 +68,12 @@ def mess(message):
                                                               'масовое производство изделий для дома - от 40000 сом',
                        reply_markup=income_keyboard)
 
+    elif message.text == "Контакты":
+        bot.send_photo(chat_id, 'https://imbt.ga/n3e6eSK12S',  'позвонить - +996 703 17 07 02\n'
+                                                               'Instagram - https://www.instagram.com/asada17rain/\n'
+                                                               'Telegram - @KGweave_bot',
+
+                       reply_markup=income_keyboard)
 
 # @bot.callback_query_handler(func=lambda c: True)
 # def inline(c):
