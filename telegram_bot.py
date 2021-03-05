@@ -1,7 +1,9 @@
 import telebot
+import os
 from telebot import types
-from conf import token
+from config import TOKEN
 
+token = os.getenv(TOKEN)
 bot = telebot.TeleBot(token)
 
 inline_keyboard = types.InlineKeyboardMarkup()
